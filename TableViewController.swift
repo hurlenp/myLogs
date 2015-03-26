@@ -23,6 +23,7 @@ class TableViewController: PFQueryTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         //Register Custom Cell
         var nib = UINib(nibName: "vwLogCell", bundle: nil)
         tableView.registerNib(nib, forCellReuseIdentifier: "logCell")
@@ -182,11 +183,11 @@ class TableViewController: PFQueryTableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        tableView.delegate = self
-        super.tableView(tableView, didDeselectRowAtIndexPath: indexPath)
-        //super.tableView(<#tableView: UITableView#>, didDeselectRowAtIndexPath: <#NSIndexPath#>)
+        
+        //super.tableView(tableView, didDeselectRowAtIndexPath: indexPath)
         
         let selectedObject = self.objectAtIndexPath(indexPath)
+        self.performSegueWithIdentifier("destinationViewController", sender: selectedObject)
         
     }
     

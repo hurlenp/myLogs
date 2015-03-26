@@ -27,8 +27,8 @@ class DetailViewController: UIViewController {
             var stringNumber: String = logID.text
             var log = stringNumber.toInt()
             object["logID"] = log
-            object["logType"] = logType.text
-            object["logSubType"] = logSubType.text
+            object["logType"] = logType.text?
+            object["logSubType"] = logSubType.text?
             
             // Save the data back to the server in a background task
             //object.saveEventually(nil)

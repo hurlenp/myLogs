@@ -8,11 +8,11 @@
 
 import Foundation
 
-class loginViewController: UIViewController {
+class loginViewController: UIViewController, FBLoginViewDelegate {
     
-    //FB, FBLoginViewDelegate
     
-    //FB @IBOutlet weak var fbLoginView: FBLoginView!
+    
+    @IBOutlet weak var fbLoginView: FBLoginView!
     @IBOutlet weak var loginInitialLabel: UILabel!
     @IBOutlet weak var logInSavePassLabel: UILabel!
     
@@ -27,7 +27,7 @@ class loginViewController: UIViewController {
             // Not Empty, Do something.
             if logInSavePassSwitch.on {
                 // If the user has selected YES to saving password
-                //println(loginInUserTextField.text)
+                println(loginInUserTextField.text)
                 println(logInPassTextField.text)
                 PFUser.logInWithUsernameInBackground(loginInUserTextField.text, password:logInPassTextField.text) {
                     (user: PFUser!, error: NSError!) -> Void in
@@ -50,7 +50,7 @@ class loginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        /*FB self.fbLoginView.delegate = self
+        self.fbLoginView.delegate = self
         self.fbLoginView.readPermissions = ["public_profile", "email", "user_friends"]
     }
     
@@ -71,6 +71,6 @@ class loginViewController: UIViewController {
     func loginView(loginView : FBLoginView!, handleError:NSError) {
         println("Error: \(handleError.localizedDescription)")
     }
-    */
-    }
+    
+    
 }

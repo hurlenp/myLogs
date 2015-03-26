@@ -7,14 +7,14 @@
 //
 
 import UIKit
-//#import <FBSDKCoreKit/FBSDKCoreKit.h>
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
+//test github
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
         Parse.setApplicationId("dSHFoG4j7uVFR9j6er3qnWvRmPNX1iGX6m4zM7DY",

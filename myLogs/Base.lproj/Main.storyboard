@@ -75,7 +75,7 @@
         <!--Table View Controller-->
         <scene sceneID="tfb-Mt-Df2">
             <objects>
-                <tableViewController id="nA5-jn-01h" customClass="TableViewController" customModule="myLogs" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="tableViewID" id="nA5-jn-01h" customClass="TableViewController" customModule="myLogs" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="64" sectionHeaderHeight="22" sectionFooterHeight="22" id="xtF-MF-dgq">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -153,15 +153,13 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Username" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PJG-Uh-bNE">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PJG-Uh-bNE">
                                 <rect key="frame" x="21" y="215" width="295" height="30"/>
-                                <color key="textColor" red="0.80000001192092896" green="0.80000001192092896" blue="0.80000001192092896" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Password" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AVQ-7A-CMc">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AVQ-7A-CMc">
                                 <rect key="frame" x="21" y="253" width="295" height="30"/>
-                                <color key="textColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -187,7 +185,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="xl1-uh-JCD"/>
                     <connections>
-                        <outlet property="fbLoginView" destination="SE3-wq-rF2" id="U7t-Jg-hmW"/>
                         <outlet property="logInPassTextField" destination="AVQ-7A-CMc" id="SbL-Pw-ImW"/>
                         <outlet property="logInSavePassLabel" destination="eYp-4i-xE3" id="Q7Z-Qh-aof"/>
                         <outlet property="logInSavePassSwitch" destination="AX6-5V-6Hm" id="kWI-lN-Lvb"/>
@@ -197,7 +194,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w5z-fS-0Np" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2804" y="160"/>
+            <point key="canvasLocation" x="2830" y="342"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="pLl-MZ-dPG">
@@ -210,7 +207,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="nA5-jn-01h" kind="relationship" relationship="rootViewController" id="Pt5-pL-w7z"/>
+                        <segue destination="jJI-3o-pQC" kind="relationship" relationship="rootViewController" id="Rpb-1w-4JF"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3nR-i4-HVT" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -221,5 +218,8 @@
     <resources>
         <image name="MyLogs" width="147" height="67"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="Rpb-1w-4JF"/>
+    </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
 </document>
