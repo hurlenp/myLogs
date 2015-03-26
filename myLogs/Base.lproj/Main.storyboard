@@ -207,7 +207,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="jJI-3o-pQC" kind="relationship" relationship="rootViewController" id="Rpb-1w-4JF"/>
+                        <segue destination="nA5-jn-01h" kind="relationship" relationship="rootViewController" id="lbd-la-9gZ"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3nR-i4-HVT" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -218,8 +218,5 @@
     <resources>
         <image name="MyLogs" width="147" height="67"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="Rpb-1w-4JF"/>
-    </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
 </document>

@@ -8,11 +8,11 @@
 
 import Foundation
 
-class loginViewController: UIViewController, FBLoginViewDelegate {
+class loginViewController: UIViewController  {
+    //FB ,FBLoginViewDelegate
     
     
-    
-    @IBOutlet weak var fbLoginView: FBLoginView!
+    //FB@IBOutlet weak var fbLoginView: FBLoginView!
     @IBOutlet weak var loginInitialLabel: UILabel!
     @IBOutlet weak var logInSavePassLabel: UILabel!
     
@@ -50,27 +50,27 @@ class loginViewController: UIViewController, FBLoginViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.fbLoginView.delegate = self
-        self.fbLoginView.readPermissions = ["public_profile", "email", "user_friends"]
+        //FBself.fbLoginView.delegate = self
+        //FBself.fbLoginView.readPermissions = ["public_profile", "email", "user_friends"]
     }
     
     
-    func loginViewShowingLoggedInUser(loginView : FBLoginView!) {
-        println("User Logged In")
-        println("This is where you perform a segue.")
-    }
+    //FBfunc loginViewShowingLoggedInUser(loginView : FBLoginView!) {
+        //FBprintln("User Logged In")
+        //FBprintln("This is where you perform a segue.")
+    //FB}
     
-    func loginViewFetchedUserInfo(loginView : FBLoginView!, user: FBGraphUser){
-        println("User Name: \(user.name)")
-    }
+    //FBfunc loginViewFetchedUserInfo(loginView : FBLoginView!, user: FBGraphUser){
+        //FBprintln("User Name: \(user.name)")
+    //FB}
     
-    func loginViewShowingLoggedOutUser(loginView : FBLoginView!) {
-        println("User Logged Out")
-    }
+    //FBfunc loginViewShowingLoggedOutUser(loginView : FBLoginView!) {
+        //FBprintln("User Logged Out")
+    //FB}
     
-    func loginView(loginView : FBLoginView!, handleError:NSError) {
-        println("Error: \(handleError.localizedDescription)")
-    }
+    //FBfunc loginView(loginView : FBLoginView!, handleError:NSError) {
+        //FBprintln("Error: \(handleError.localizedDescription)")
+    //FB}
     
     
 }
