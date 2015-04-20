@@ -20,8 +20,8 @@ class TblCell: PFTableViewCell {
     @IBOutlet weak var lblLocation: UILabel!
     
     @IBOutlet weak var lblComment: UILabel!
-
-    @IBOutlet weak var vwComment: UILabel!
+    
+    @IBOutlet weak var vwComment: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

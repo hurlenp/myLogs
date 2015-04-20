@@ -15,9 +15,9 @@ class TableViewController: PFQueryTableViewController {
     var comment: String?
     let service = "swiftLogin"
     let userAccount = "swiftLoginUser"
-    let key = "RandomKey"
-    
-    
+    var navigationBarAppearace = UINavigationBar.appearance()
+
+
     
     
     override func viewDidLoad() {
@@ -28,10 +28,58 @@ class TableViewController: PFQueryTableViewController {
         var nib = UINib(nibName: "vwLogCell", bundle: nil)
         tableView.registerNib(nib, forCellReuseIdentifier: "logCell")
         
+
+        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+        self.navigationController?.navigationBar.barTintColor = UIColor(red: 18.0/255.0, green: 33.0/255.0, blue: 43.0/255.0, alpha: 1.0)
         
+        //self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "SnellRoundhand-Bold", size: 25)!]
+        //self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        var attributes = [
+            NSForegroundColorAttributeName: UIColor.whiteColor(),
+            NSFontAttributeName: UIFont(name: "Baskerville-SemiBoldItalic", size: 30)!
+        ]
+        self.navigationController?.navigationBar.titleTextAttributes = attributes
+        
+        //This line makes a taller nav bar
+        //self.navigationItem.prompt = ""
+        
+        
+        
+        //let image = UIImage(named: "toiletpaper")
+        //let imageView = UIImageView(image: image)
+        
+        //self.navigationItem.titleView = imageView
+        self.navigationItem.title = "myLogs"
+        
+        //create right menu item
+        let rightMenuImage = UIImage(named: "toiletpaper")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
+        var rightMenuButton = UIButton.buttonWithType(UIButtonType.Custom) as UIButton
+        rightMenuButton.setImage(rightMenuImage, forState: UIControlState.Normal)
+        rightMenuButton.addTarget(self, action: Selector("rightMenuButtonPressed:"), forControlEvents: UIControlEvents.TouchUpInside)
+        rightMenuButton.frame = CGRectMake(0, 0, rightMenuImage!.size.width, rightMenuImage!.size.height)
+        rightMenuButton.autoresizingMask = UIViewAutoresizing.FlexibleLeftMargin | UIViewAutoresizing.FlexibleTopMargin
+        var rightButton = UIBarButtonItem(customView: rightMenuButton)
+        self.navigationItem.setRightBarButtonItem(rightButton, animated: true)
+        
+
+        //create left menu item
+        let leftMenuImage = UIImage(named: "leftmenuitem2")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
+        var leftMenuButton = UIButton.buttonWithType(UIButtonType.Custom) as UIButton
+        leftMenuButton.setBackgroundImage(leftMenuImage, forState: UIControlState.Normal)
+        //leftMenuButton.setBackgroundImage(UIImage(named:"right_menu_icon_highlight.png"), forState: UIControlState.Highlighted)
+        leftMenuButton.addTarget(self, action: "leftMenuButtonPressed:", forControlEvents: .TouchUpInside)
+        leftMenuButton.frame = CGRectMake(0, 0, leftMenuImage!.size.width, leftMenuImage!.size.height)
+        leftMenuButton.autoresizingMask = UIViewAutoresizing.FlexibleLeftMargin | UIViewAutoresizing.FlexibleTopMargin
+        var leftButton:UIBarButtonItem =  UIBarButtonItem(customView: leftMenuButton)
+        self.navigationItem.setLeftBarButtonItem(leftButton, animated: true)
+        
+        preferredStatusBarStyle()
     }
     
     
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return UIStatusBarStyle.LightContent;
+    }
     // Initialise the PFQueryTable tableview
     override init!(style: UITableViewStyle, className: String!) {
         super.init(style: style, className: className)
@@ -72,7 +120,7 @@ class TableViewController: PFQueryTableViewController {
      
         cell.lblUser.text = object["username"] as String!
         cell.lblLocation.text = object["location"] as String!
-        comment = object["comment"] as String!
+        comment = object["comment"] as String?
         cell.lblComment.text = comment
         
         cell.imgUser.image = UIImage(named: object["username"] as String!)
@@ -158,7 +206,7 @@ class TableViewController: PFQueryTableViewController {
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        println(sections.count)
+        //println(sections.count)
         return sections.count
     }
 
@@ -193,11 +241,11 @@ class TableViewController: PFQueryTableViewController {
     
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        //if comment == nil {
-        //return 97
-        //} else {
-        return 118
-        //}
+        if comment == nil {
+        return 97
+        } else {
+        return 130
+        }
     }
     
     override func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
@@ -210,31 +258,63 @@ class TableViewController: PFQueryTableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         // Get the new view controller using [segue destinationViewController].
-        var detailScene = segue.destinationViewController as DetailViewController
         
-        // Pass the selected object to the destination view controller.
-        if let indexPath = self.tableView.indexPathForSelectedRow() {
-            let row = Int(indexPath.row)
-            detailScene.currentObject = objects[row] as? PFObject
+        if segue.destinationViewController.isKindOfClass(DetailViewController.self) {
+            var detailScene = segue.destinationViewController as DetailViewController
+            
+            // Pass the selected object to the destination view controller.
+            
+            if let indexPath = self.tableView.indexPathForSelectedRow() {
+                let sectionRow = Int(indexPath.row)
+                let section = Int(indexPath.section)
+                var row = 0
+                
+                if section > 0 {
+                    for counter in 0...section - 1 {
+                        for counter2 in 0...self.tableView.numberOfRowsInSection(counter) - 1{
+                            row = row + 1
+                        }
+                    }
+                }
+                row = row + sectionRow
+                println(row)
+                detailScene.currentObject = objects[row] as? PFObject
+            }
+
         }
+            }
+    
+    func rightMenuButtonPressed(sender:UIButton)
+    {
+        println("New Log!")
+        self.performSegueWithIdentifier("destinationViewController", sender: self)
+    }
+    
+    func leftMenuButtonPressed(sender:UIButton)
+    {
+        println("Open Menu!")
     }
     
     override func viewDidAppear(animated: Bool) {
         //let (dictionary, error) = Locksmith.loadData(forKey: key, inService: service, forUserAccount: userAccount)
         
-        /*
+        
         let (dictionary, error) = Locksmith.loadDataForUserAccount(userAccount, inService: service)
         if let dictionary = dictionary {
+            println("logged in")
             
+            var unwrappedValue: AnyObject = dictionary["username"]!
+            println(unwrappedValue)
             // User is already logged in, Send them to already logged in view.
             
         } else {
+            println("not logged in")
             self.performSegueWithIdentifier("logInViewSegue", sender: self)
             // Not logged in, send to login view controller
             
         }
-        */
-
+        
+        
         tableView.reloadData()
     }
     

@@ -22,11 +22,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         var object = PFObject(className: "myLogTest")
         
-        //object.addObject("John's Butt", forKey: "websiteUrl")
-        
-        //object.addObject("Hello", forKey: "websiteRating")
-        
-        //object.save()
         
         
         /*FB
@@ -34,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FBProfilePictureView.self
         */
         
-        
+        UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
         
         // Override point for customization after application launch.
         return true

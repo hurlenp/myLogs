@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -15,7 +15,7 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Username" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RvD-j4-fNy">
                         <rect key="frame" x="110" y="4" width="208" height="35"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="23"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kwF-j4-CmR">
@@ -50,11 +50,11 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="imgUser" destination="kwF-j4-CmR" id="WXZ-i9-xaZ"/>
-                <outlet property="lblComment" destination="tK4-nB-5O4" id="7vI-NV-jEo"/>
+                <outlet property="lblComment" destination="tK4-nB-5O4" id="oac-Q2-pAk"/>
                 <outlet property="lblLocation" destination="s2n-s8-ynF" id="MtU-Jc-TWb"/>
                 <outlet property="lblLogTime" destination="LMX-PC-LEb" id="er6-fB-O0T"/>
                 <outlet property="lblUser" destination="RvD-j4-fNy" id="seY-z2-5bE"/>
-                <outlet property="vwComment" destination="tK4-nB-5O4" id="E2e-jv-l3K"/>
+                <outlet property="vwComment" destination="5Sv-3u-InJ" id="fm6-AD-SMM"/>
             </connections>
             <point key="canvasLocation" x="314" y="149"/>
         </tableViewCell>

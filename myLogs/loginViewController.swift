@@ -11,6 +11,8 @@ import Foundation
 class loginViewController: UIViewController  {
     //FB ,FBLoginViewDelegate
     
+    let service = "swiftLogin"
+    let userAccount = "swiftLoginUser"
     
     //FB@IBOutlet weak var fbLoginView: FBLoginView!
     @IBOutlet weak var loginInitialLabel: UILabel!
@@ -34,8 +36,13 @@ class loginViewController: UIViewController  {
                     if user != nil {
                         // Yes, User Exists
                         self.loginInitialLabel.text = "User Exists"
+                        Locksmith.saveData(["username": "\(self.loginInUserTextField.text)"], forUserAccount: "swiftLoginUser", inService: self.service)
+                        //let error =
+                        self.performSegueWithIdentifier("tableViewSegue", sender: self)
                     } else {
                         // No, User Doesn't Exist
+                        self.loginInitialLabel.text = "Incorrect Username/Password.  Try Again."
+                        
                     }
                 }
             } else {
